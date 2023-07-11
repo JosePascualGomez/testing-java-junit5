@@ -10,9 +10,9 @@ import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import guru.springframework.sfgpetclinic.services.PetService;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
+import jakarta.validation.Valid;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.validation.Valid;
 import java.util.Collection;
 
 public class PetController {

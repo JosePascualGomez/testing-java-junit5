@@ -1,0 +1,494 @@
+@startuml
+interface guru.springframework.sfgpetclinic.fauxspring.BindingResult {
+~ void rejectValue(String,String,String)
+~ boolean hasErrors()
+}
+class guru.springframework.sfgpetclinic.services.map.PetTypeMapService {
++ Set<PetType> findAll()
++ PetType findById(Long)
++ PetType save(PetType)
++ void delete(PetType)
++ void deleteById(Long)
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.SpecialitySDJpaServiceTest {
+~ SpecialtyRepository specialtyRepository
+~ SpecialitySDJpaService service
+~ void testDeleteByObject()
+~ void findByIdTest()
+~ void deleteById()
+~ void deleteByIdAtLeast()
+~ void testDelete()
+}
+class guru.springframework.sfgpetclinic.services.map.SpecialityMapService {
++ Set<Speciality> findAll()
++ Speciality findById(Long)
++ Speciality save(Speciality)
++ void delete(Speciality)
++ void deleteById(Long)
+}
+class guru.springframework.sfgpetclinic.controllers.IndexControllerTest {
+~ IndexController controller
+~ void setUp()
+~ void index()
+~ void oupsHandler()
+~ void testTimeOut()
+~ void testTimeOutPrempt()
+~ void testAssumptionTrue()
+~ void testAssumptionTrueAssumptionIsTrue()
+~ void testMeOnMacOS()
+~ void testMeOnWindows()
+~ void testMeOnJava8()
+~ void testMeOnJava11()
+~ void testIfUserJT()
+~ void testIfUserFred()
+}
+class guru.springframework.sfgpetclinic.services.map.PetMapService {
++ Set<Pet> findAll()
++ Pet findById(Long)
++ Pet save(Pet)
++ void delete(Pet)
++ void deleteById(Long)
+}
+class guru.springframework.sfgpetclinic.services.map.VisitMapService {
++ Set<Visit> findAll()
++ Visit findById(Long)
++ Visit save(Visit)
++ void delete(Visit)
++ void deleteById(Long)
+}
+class guru.springframework.AnnotationMocksTest {
+~ Map<String,Object> mapMock
+~ void setUp()
+~ void testMock()
+}
+class guru.springframework.sfgpetclinic.junitextensions.TimingExtension {
+- {static} Logger logger
+- {static} String START_TIME
++ void beforeTestExecution(ExtensionContext)
++ void afterTestExecution(ExtensionContext)
+- ExtensionContext.Store getStore(ExtensionContext)
+}
+interface guru.springframework.sfgpetclinic.repositories.Repository {
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.VetSDJpaServiceTest {
+~ VetRepository vetRepository
+~ VetSDJpaService service
+~ void deleteById()
+}
+class guru.springframework.sfgpetclinic.model.Owner {
+- String address
+- String city
+- String telephone
+- Set<Pet> pets
++ Pet getPet(String)
++ Pet getPet(String,boolean)
++ String getAddress()
++ void setAddress(String)
++ String getCity()
++ void setCity(String)
++ String getTelephone()
++ void setTelephone(String)
++ Set<Pet> getPets()
++ void setPets(Set<Pet>)
+}
+class guru.springframework.sfgpetclinic.fauxspring.ModelMapImpl {
+~ Map<String,Object> map
++ void addAttribute(String,Object)
++ void addAttribute(Object)
++ Map<String,Object> getMap()
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.PetTypeSDJpaServiceIT {
+~ void setUp()
+~ void findAll()
+~ void findById()
+~ void save()
+~ void delete()
+~ void deleteById()
+}
+interface guru.springframework.sfgpetclinic.repositories.PetTypeRepository {
+}
+class guru.springframework.sfgpetclinic.controllers.IndexController {
++ String index()
++ String oopsHandler()
+}
+class guru.springframework.sfgpetclinic.model.PetType {
+- String name
++ String toString()
++ String getName()
++ void setName(String)
+}
+class guru.springframework.sfgpetclinic.model.Vet {
+- Set<Speciality> specialities
++ Set<Speciality> getSpecialities()
++ void setSpecialities(Set<Speciality>)
+}
+class guru.springframework.sfgpetclinic.controllers.ValueNotFoundException {
+}
+interface guru.springframework.sfgpetclinic.ControllerTests {
+~ void beforeAll()
+}
+interface guru.springframework.sfgpetclinic.repositories.VisitRepository {
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.SpecialitySDJpaService {
+- SpecialtyRepository specialtyRepository
++ Set<Speciality> findAll()
++ Speciality findById(Long)
++ Speciality save(Speciality)
++ void delete(Speciality)
++ void deleteById(Long)
+}
+class guru.springframework.sfgpetclinic.model.Pet {
+- String name
+- PetType petType
+- Owner owner
+- LocalDate birthDate
+- Set<Visit> visits
++ String getName()
++ void setName(String)
++ PetType getPetType()
++ void setPetType(PetType)
++ Owner getOwner()
++ void setOwner(Owner)
++ LocalDate getBirthDate()
++ void setBirthDate(LocalDate)
++ Set<Visit> getVisits()
++ void setVisits(Set<Visit>)
+}
+class guru.springframework.sfgpetclinic.controllers.OwnerController {
+- {static} String VIEWS_OWNER_CREATE_OR_UPDATE_FORM
+- OwnerService ownerService
++ void setAllowedFields(WebDataBinder)
++ String findOwners(Model)
++ String processFindForm(Owner,BindingResult,Model)
++ ModelAndView showOwner(Long)
++ String initCreationForm(Model)
++ String processCreationForm(Owner,BindingResult)
++ String initUpdateOwnerForm(Long,Model)
++ String processUpdateOwnerForm(Owner,BindingResult,Long)
+}
+interface guru.springframework.sfgpetclinic.services.PetTypeService {
+}
+class guru.springframework.sfgpetclinic.model.OwnerTest {
+~ void dependentAssertions()
+~ void testValueSource(String)
+~ void enumTest(OwnerType)
+~ void csvInputTest(String,int,int)
+~ void csvFromFileTest(String,int,int)
+~ void fromMethodTest(String,int,int)
+~ {static} Stream<Arguments> getargs()
+~ void fromCustomProviderTest(String,int,int)
+}
+interface guru.springframework.sfgpetclinic.services.CrudService {
+~ Set<T> findAll()
+~ T findById(ID)
+~ T save(T)
+~ void delete(T)
+~ void deleteById(ID)
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.OwnerSDJpaService {
+- OwnerRepository ownerRepository
+- PetRepository petRepository
+- PetTypeRepository petTypeRepository
++ Owner findByLastName(String)
++ List<Owner> findAllByLastNameLike(String)
++ Set<Owner> findAll()
++ Owner findById(Long)
++ Owner save(Owner)
++ void delete(Owner)
++ void deleteById(Long)
+}
+interface guru.springframework.sfgpetclinic.repositories.PetRepository {
+}
+interface guru.springframework.sfgpetclinic.services.VisitService {
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.OwnerSDJpaServiceTest {
+~ OwnerSDJpaService service
+~ void setUp()
+~ void findByLastName()
+~ void findAllByLastNameLike()
+~ void findAll()
+~ void findById()
+~ void save()
+~ void delete()
+~ void deleteById()
+}
+class guru.springframework.sfgpetclinic.controllers.VisitController {
+- VisitService visitService
+- PetService petService
++ void setAllowedFields(WebDataBinder)
++ Visit loadPetWithVisit(Long,Map<String,Object>)
++ String initNewVisitForm(Long,Map<String,Object>)
++ String processNewVisitForm(Visit,BindingResult)
+}
+interface guru.springframework.sfgpetclinic.services.PetService {
+}
+interface guru.springframework.sfgpetclinic.fauxspring.Model {
+~ void addAttribute(String,Object)
+~ void addAttribute(Object)
+}
+interface guru.springframework.sfgpetclinic.ModelTests {
+~ void beforeEachConsoleOutputer(TestInfo)
+}
+class guru.springframework.sfgpetclinic.model.PersonRepeatedTests {
+~ void myRepeatedTest()
+~ void myRepeatedTestWithDI(TestInfo,RepetitionInfo)
+~ void myAssignmentRepeated()
+}
+abstract class guru.springframework.sfgpetclinic.services.map.AbstractMapService {
+# Map<Long,T> map
+~ Set<T> findAll()
+~ T findById(ID)
+~ T save(T)
+~ void deleteById(ID)
+~ void delete(T)
+- Long getNextId()
+}
+class guru.springframework.sfgpetclinic.CustomArgsProvider {
++ Stream<? extends Arguments> provideArguments(ExtensionContext)
+}
+interface guru.springframework.sfgpetclinic.repositories.VetRepository {
+}
+class guru.springframework.sfgpetclinic.services.map.OwnerMapService {
+- PetTypeService petTypeService
+- PetService petService
++ Set<Owner> findAll()
++ Owner findById(Long)
++ Owner save(Owner)
++ void delete(Owner)
++ void deleteById(Long)
++ Owner findByLastName(String)
++ List<Owner> findAllByLastNameLike(String)
+}
+class guru.springframework.sfgpetclinic.model.Speciality {
+- String description
++ String getDescription()
++ void setDescription(String)
+}
+class guru.springframework.sfgpetclinic.controllers.PetController {
+- {static} String VIEWS_PETS_CREATE_OR_UPDATE_FORM
+- PetService petService
+- OwnerService ownerService
+- PetTypeService petTypeService
++ Collection<PetType> populatePetTypes()
++ Owner findOwner(Long)
++ void initOwnerBinder(WebDataBinder)
++ String initCreationForm(Owner,Model)
++ String processCreationForm(Owner,Pet,BindingResult,ModelMap)
++ String initUpdateForm(Long,Model)
++ String processUpdateForm(Pet,BindingResult,Owner,Model)
+}
+interface guru.springframework.sfgpetclinic.fauxspring.ModelMap {
+~ void put(String,Pet)
+}
+class guru.springframework.sfgpetclinic.formatters.PetTypeFormatter {
+- PetTypeService petTypeService
++ String print(PetType,Locale)
++ PetType parse(String,Locale)
+}
+class guru.springframework.sfgpetclinic.model.BaseEntity {
+- Long id
++ boolean isNew()
++ Long getId()
++ void setId(Long)
+}
+class guru.springframework.sfgpetclinic.controllers.VetControllerTest {
+~ VetService vetService
+~ SpecialtyService specialtyService
+~ VetController vetController
+~ void setUp()
+~ void listVets()
+}
+interface guru.springframework.sfgpetclinic.fauxspring.Formatter {
+~ String print(PetType,Locale)
+~ PetType parse(String,Locale)
+}
+class guru.springframework.sfgpetclinic.model.Person {
+- String firstName
+- String lastName
++ String getFirstName()
++ void setFirstName(String)
++ String getLastName()
++ void setLastName(String)
+}
+class guru.springframework.sfgpetclinic.model.PersonTest {
+~ void groupedAssertions()
+~ void groupedAssertionMsgs()
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.PetSDJpaService {
+- PetRepository petRepository
++ Set<Pet> findAll()
++ Pet findById(Long)
++ Pet save(Pet)
++ void delete(Pet)
++ void deleteById(Long)
+}
+interface guru.springframework.sfgpetclinic.services.SpecialtyService {
+}
+interface guru.springframework.sfgpetclinic.services.OwnerService {
+~ Owner findByLastName(String)
+~ List<Owner> findAllByLastNameLike(String)
+}
+class guru.springframework.sfgpetclinic.services.map.VetMapService {
+- SpecialtyService specialtyService
++ Set<Vet> findAll()
++ Vet findById(Long)
++ Vet save(Vet)
++ void delete(Vet)
++ void deleteById(Long)
+}
+interface guru.springframework.sfgpetclinic.repositories.CrudRepository {
+~ S save(S)
+~ Iterable<S> saveAll(Iterable<S>)
+~ Optional<T> findById(ID)
+~ boolean existsById(ID)
+~ Iterable<T> findAll()
+~ Iterable<T> findAllById(Iterable<ID>)
+~ long count()
+~ void deleteById(ID)
+~ void delete(T)
+~ void deleteAll(Iterable<? extends T>)
+~ void deleteAll()
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.PetTypeSDJpaService {
+- PetTypeRepository petTypeRepository
++ Set<PetType> findAll()
++ PetType findById(Long)
++ PetType save(PetType)
++ void delete(PetType)
++ void deleteById(Long)
+}
+class guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest {
+~ OwnerMapService ownerMapService
+~ PetTypeService petTypeService
+~ PetService petService
+~ void setUp()
+~ void ownersAreZero()
+~ void ownersAreStillZero()
+}
+class guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes {
+~ void setUp()
+~ void testPetCount()
+}
+class guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes$SaveOwnersTests {
+~ void setUp()
+~ void saveOwner()
+}
+class guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes$SaveOwnersTests$FindOwnersTests {
+~ void findOwner()
+~ void findOwnerNotFound()
+}
+class guru.springframework.InLineMockTest {
+~ void testInLineMock()
+}
+class guru.springframework.sfgpetclinic.fauxspring.ModelAndView {
++ void addObject(Object)
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.VisitSDJpaService {
+- VisitRepository visitRepository
++ Set<Visit> findAll()
++ Visit findById(Long)
++ Visit save(Visit)
++ void delete(Visit)
++ void deleteById(Long)
+}
+class guru.springframework.sfgpetclinic.model.Visit {
+- LocalDate date
+- String description
+- Pet pet
++ LocalDate getDate()
++ void setDate(LocalDate)
++ String getDescription()
++ void setDescription(String)
++ Pet getPet()
++ void setPet(Pet)
+}
+class guru.springframework.JUnitExtensionTest {
+~ Map<String,Object> mapMock
+~ void testMock()
+}
+interface guru.springframework.sfgpetclinic.ModelRepeatedTests {
+~ void beforeEachConsoleOutputer(TestInfo,RepetitionInfo)
+}
+class guru.springframework.sfgpetclinic.services.springdatajpa.VetSDJpaService {
+- VetRepository vetRepository
++ Set<Vet> findAll()
++ Vet findById(Long)
++ Vet save(Vet)
++ void delete(Vet)
++ void deleteById(Long)
+}
+interface guru.springframework.sfgpetclinic.repositories.SpecialtyRepository {
+}
+interface guru.springframework.sfgpetclinic.fauxspring.WebDataBinder {
+~ void setDisallowedFields(String)
+}
+interface guru.springframework.sfgpetclinic.services.VetService {
+}
+interface guru.springframework.sfgpetclinic.repositories.OwnerRepository {
+~ Owner findByLastName(String)
+~ List<Owner> findAllByLastNameLike(String)
+}
+class guru.springframework.sfgpetclinic.controllers.VetController {
+- VetService vetService
++ String listVets(Model)
+}
+enum guru.springframework.sfgpetclinic.model.OwnerType {
++  INDIVIDUAL
++  COMPANY
+}
+
+
+guru.springframework.sfgpetclinic.services.PetTypeService <|.. guru.springframework.sfgpetclinic.services.map.PetTypeMapService
+guru.springframework.sfgpetclinic.services.map.AbstractMapService <|-- guru.springframework.sfgpetclinic.services.map.PetTypeMapService
+guru.springframework.sfgpetclinic.services.SpecialtyService <|.. guru.springframework.sfgpetclinic.services.map.SpecialityMapService
+guru.springframework.sfgpetclinic.services.map.AbstractMapService <|-- guru.springframework.sfgpetclinic.services.map.SpecialityMapService
+guru.springframework.sfgpetclinic.ControllerTests <|.. guru.springframework.sfgpetclinic.controllers.IndexControllerTest
+guru.springframework.sfgpetclinic.services.PetService <|.. guru.springframework.sfgpetclinic.services.map.PetMapService
+guru.springframework.sfgpetclinic.services.map.AbstractMapService <|-- guru.springframework.sfgpetclinic.services.map.PetMapService
+guru.springframework.sfgpetclinic.services.VisitService <|.. guru.springframework.sfgpetclinic.services.map.VisitMapService
+guru.springframework.sfgpetclinic.services.map.AbstractMapService <|-- guru.springframework.sfgpetclinic.services.map.VisitMapService
+org.junit.jupiter.api.extension.BeforeTestExecutionCallback <|.. guru.springframework.sfgpetclinic.junitextensions.TimingExtension
+org.junit.jupiter.api.extension.AfterTestExecutionCallback <|.. guru.springframework.sfgpetclinic.junitextensions.TimingExtension
+guru.springframework.sfgpetclinic.model.Person <|-- guru.springframework.sfgpetclinic.model.Owner
+guru.springframework.sfgpetclinic.fauxspring.Model <|.. guru.springframework.sfgpetclinic.fauxspring.ModelMapImpl
+guru.springframework.sfgpetclinic.repositories.CrudRepository <|-- guru.springframework.sfgpetclinic.repositories.PetTypeRepository
+guru.springframework.sfgpetclinic.model.BaseEntity <|-- guru.springframework.sfgpetclinic.model.PetType
+guru.springframework.sfgpetclinic.model.Person <|-- guru.springframework.sfgpetclinic.model.Vet
+guru.springframework.sfgpetclinic.controllers.RuntimeException <|-- guru.springframework.sfgpetclinic.controllers.ValueNotFoundException
+guru.springframework.sfgpetclinic.repositories.CrudRepository <|-- guru.springframework.sfgpetclinic.repositories.VisitRepository
+guru.springframework.sfgpetclinic.services.SpecialtyService <|.. guru.springframework.sfgpetclinic.services.springdatajpa.SpecialitySDJpaService
+guru.springframework.sfgpetclinic.model.BaseEntity <|-- guru.springframework.sfgpetclinic.model.Pet
+guru.springframework.sfgpetclinic.services.CrudService <|-- guru.springframework.sfgpetclinic.services.PetTypeService
+guru.springframework.sfgpetclinic.ModelTests <|.. guru.springframework.sfgpetclinic.model.OwnerTest
+guru.springframework.sfgpetclinic.services.OwnerService <|.. guru.springframework.sfgpetclinic.services.springdatajpa.OwnerSDJpaService
+guru.springframework.sfgpetclinic.repositories.CrudRepository <|-- guru.springframework.sfgpetclinic.repositories.PetRepository
+guru.springframework.sfgpetclinic.services.CrudService <|-- guru.springframework.sfgpetclinic.services.VisitService
+guru.springframework.sfgpetclinic.services.CrudService <|-- guru.springframework.sfgpetclinic.services.PetService
+guru.springframework.sfgpetclinic.ModelRepeatedTests <|.. guru.springframework.sfgpetclinic.model.PersonRepeatedTests
+org.junit.jupiter.params.provider.ArgumentsProvider <|.. guru.springframework.sfgpetclinic.CustomArgsProvider
+guru.springframework.sfgpetclinic.repositories.CrudRepository <|-- guru.springframework.sfgpetclinic.repositories.VetRepository
+guru.springframework.sfgpetclinic.services.OwnerService <|.. guru.springframework.sfgpetclinic.services.map.OwnerMapService
+guru.springframework.sfgpetclinic.services.map.AbstractMapService <|-- guru.springframework.sfgpetclinic.services.map.OwnerMapService
+guru.springframework.sfgpetclinic.model.BaseEntity <|-- guru.springframework.sfgpetclinic.model.Speciality
+guru.springframework.sfgpetclinic.fauxspring.Formatter <|.. guru.springframework.sfgpetclinic.formatters.PetTypeFormatter
+java.io.Serializable <|.. guru.springframework.sfgpetclinic.model.BaseEntity
+guru.springframework.sfgpetclinic.ControllerTests <|.. guru.springframework.sfgpetclinic.controllers.VetControllerTest
+guru.springframework.sfgpetclinic.model.BaseEntity <|-- guru.springframework.sfgpetclinic.model.Person
+guru.springframework.sfgpetclinic.ModelTests <|.. guru.springframework.sfgpetclinic.model.PersonTest
+guru.springframework.sfgpetclinic.services.PetService <|.. guru.springframework.sfgpetclinic.services.springdatajpa.PetSDJpaService
+guru.springframework.sfgpetclinic.services.CrudService <|-- guru.springframework.sfgpetclinic.services.SpecialtyService
+guru.springframework.sfgpetclinic.services.CrudService <|-- guru.springframework.sfgpetclinic.services.OwnerService
+guru.springframework.sfgpetclinic.services.VetService <|.. guru.springframework.sfgpetclinic.services.map.VetMapService
+guru.springframework.sfgpetclinic.services.map.AbstractMapService <|-- guru.springframework.sfgpetclinic.services.map.VetMapService
+guru.springframework.sfgpetclinic.repositories.Repository <|-- guru.springframework.sfgpetclinic.repositories.CrudRepository
+guru.springframework.sfgpetclinic.services.PetTypeService <|.. guru.springframework.sfgpetclinic.services.springdatajpa.PetTypeSDJpaService
+guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest +.. guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes
+guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes +.. guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes$SaveOwnersTests
+guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes$SaveOwnersTests +.. guru.springframework.sfgpetclinic.services.map.OwnerMapServiceTest$TestCreatePetTypes$SaveOwnersTests$FindOwnersTests
+guru.springframework.sfgpetclinic.services.VisitService <|.. guru.springframework.sfgpetclinic.services.springdatajpa.VisitSDJpaService
+guru.springframework.sfgpetclinic.model.BaseEntity <|-- guru.springframework.sfgpetclinic.model.Visit
+guru.springframework.sfgpetclinic.services.VetService <|.. guru.springframework.sfgpetclinic.services.springdatajpa.VetSDJpaService
+guru.springframework.sfgpetclinic.repositories.CrudRepository <|-- guru.springframework.sfgpetclinic.repositories.SpecialtyRepository
+guru.springframework.sfgpetclinic.services.CrudService <|-- guru.springframework.sfgpetclinic.services.VetService
+guru.springframework.sfgpetclinic.repositories.CrudRepository <|-- guru.springframework.sfgpetclinic.repositories.OwnerRepository
+@enduml
